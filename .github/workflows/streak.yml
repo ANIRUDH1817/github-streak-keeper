@@ -1,0 +1,54 @@
+name: 🔥 Daily Streak Keeper
+
+on:
+  schedule:
+    # Runs every day at 6:00 AM UTC (11:30 AM IST)
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  streak-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: ⚙️ Configure Git
+        run: |
+          git config user.name "ANIRUDH1817"
+          git config user.email "anirudhbabu1817@gmail.com"
+
+      - name: 🔥 Run streak keeper
+        run: python auto_commit.py
+
+      - name: 📤 Push changes
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            MESSAGES=(
+              "🔥 Keeping the streak alive"
+              "📅 Daily check-in"
+              "✅ Streak maintenance"
+              "🚀 Another day, another commit"
+              "💪 Consistency is key"
+              "🌟 Daily contribution"
+              "⚡ Streak keeper: active"
+              "🎯 Staying on track"
+            )
+            DAY_OF_YEAR=$(date +%j)
+            INDEX=$((DAY_OF_YEAR % ${#MESSAGES[@]}))
+            MSG="${MESSAGES[$INDEX]}"
+            git commit -m "$MSG | $(date +%Y-%m-%d)"
+            git push
+          fi
