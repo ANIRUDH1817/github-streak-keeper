@@ -6,35 +6,23 @@
 
 | Metric | Value |
 |--------|-------|
-| **Total Commits** | 1 |
-| **Current Streak** | 1 days |
-| **Last Commit** | 2026-04-11 |
+| **Total Commits** | 2 |
+| **Current Streak** | 2 days |
+| **Last Commit** | 2026-04-12 |
 | **Started** | 2026-04-11 |
 
 ## 📈 Streak Visualization
 
-🟩
+🟩🟩
 
 ## ⚙️ How It Works
 
-This repo uses a Python script + cron job to automatically:
+This repo uses **GitHub Actions** to automatically run every day:
 1. Update `streak_log.json` with today's timestamp
 2. Update this README with current stats
 3. Commit and push the changes
 
-## 🛠️ Setup
-
-```bash
-# Clone this repo
-git clone <your-repo-url>
-cd github-streak-keeper
-
-# Run setup (creates cron job)
-python3 setup_cron.py
-
-# Or run manually
-python3 auto_commit.py
-```
+No local setup needed — GitHub handles everything! ☁️
 
 ---
 
