@@ -6,14 +6,14 @@
 
 | Metric | Value |
 |--------|-------|
-| **Total Commits** | 6 |
-| **Current Streak** | 6 days |
-| **Last Commit** | 2026-04-16 |
+| **Total Commits** | 7 |
+| **Current Streak** | 7 days |
+| **Last Commit** | 2026-04-17 |
 | **Started** | 2026-04-11 |
 
 ## 📈 Streak Visualization
 
-🟩🟩🟩🟩🟩🟩
+🟩🟩🟩🟩🟩🟩🟩
 
 ## ⚙️ How It Works
 
